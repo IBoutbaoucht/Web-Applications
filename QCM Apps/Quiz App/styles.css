@@ -1,0 +1,144 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background: linear-gradient(135deg, #8e9eab, #eef2f3);
+    background-attachment: fixed;
+
+}
+
+#score {
+
+    color: green;
+
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+}
+
+header h2 {
+    color: white;
+}
+.Question {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0.4, 0.3, 0.2), 0 4px 6px -2px rgba(0, 0.5, 0.4, 0.1);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+
+.Question h4 {
+    text-align: center;
+    margin: 15px;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px ;
+}
+
+button {
+    border: none;
+    height: 35px;
+    border-radius: 8px;
+    width: 150px;
+    font-weight: bold;
+    font-size: large;
+
+}
+
+button:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+    color : white ;
+    background-color: green;
+
+}
+
+#questionStatement {
+    color: black;
+    font-size: 20px;
+}
+
+#timeleft {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#alert {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.red-text {
+    color: rgb(7, 7, 7);
+    font-weight: bold;
+}
+
+.green-text {
+    color: rgb(255, 255, 255);
+}
+
+.correct-answer {
+    color: rgb(255, 255, 255); /* Change this to any color you like */
+    font-weight: bold; /* Optional: Make it bold */
+}
+
+
+
+.Terminated {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    color: black;
+    padding: 15px;
+    
+    background: rgba(255, 255, 255, 0.2); /* Transparent effect */
+    backdrop-filter: blur(10px); /* Blurred background */
+    border-radius: 8px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0.4, 0.3, 0.2), 0 4px 6px -2px rgba(0, 0.5, 0.4, 0.1);
+}
+
+
+
+
+.Inc {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    color: green;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    margin: 20px;
+    transition: transform 0.3s ease-in-out;
+    align-self: flex-end;
+}
+
