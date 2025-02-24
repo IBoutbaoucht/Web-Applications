@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <title>Manipulation de Vue</title>
+  <script src="https://unpkg.com/vue@3"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    #monapp {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      margin: 10px 0;
+      width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    p {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div id="monapp">
+  <button @click="clicked()">{{ titre }}</button>
+  
+  <div>
+    <button @click="compteur++">++</button>{{ compteur }}
+    <button @click="compteur--">--</button>
+  </div>
+
+  <input type="text" v-model="text" placeholder="Enter text here..." />
+  
+  <p>{{ alert }}</p>
+</div>
+
+<script>
+  const appli = {
+    data() {
+      return {
+        titre: 'Cliquez moi!',
+        compteur: 0,
+        text: '',
+        alert: ''
+      };
+    },
+    methods: {
+      clicked() {
+        this.titre = 'Cliqué!';
+      }
+    },
+    watch: {
+      text(newVal) {
+        if (newVal.includes(' ')) {
+          this.alert = 'No Space Please!';
+        } else {
+          this.alert = '';
+        }
+      }
+    }
+  };
+
+  Vue.createApp(appli).mount("#monapp");
+</script>
+
+</body>
+</html>

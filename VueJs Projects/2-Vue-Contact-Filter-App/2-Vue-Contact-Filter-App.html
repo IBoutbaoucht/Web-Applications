@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet 1-38</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <style>
+        img {
+            margin-right: 1rem;
+        }
+
+        .personne {
+            clear: both;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .personne img {
+            object-fit: cover;
+            
+        }
+
+        .personne .info {
+            margin-left: 1rem;
+        }
+
+        .filters {
+            margin-bottom: 1rem;
+        }
+
+        input[type="checkbox"],
+        select {
+            margin-right: 1rem;
+        }
+
+        .misEnForme {
+            background: #ffffff;
+            font-family: georgia;
+            font-size: 1.2rem;
+            margin: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        fieldset {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        .info h4 {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+
+        #app {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <fieldset>
+            <legend>Filtre sur le nom</legend>
+            <input type="text" v-model="filtreNom" placeholder="Filter by name" />
+        </fieldset>
+        <fieldset>
+            <legend>Options</legend>
+            Homme <input type="checkbox" v-model="homme" >
+            Femme <input type="checkbox" v-model="femme" >
+            Informations de contactes <input type="checkbox" v-model="contact">
+            Photo
+            <select v-model="taille">
+                <option value="1">Petit</option>
+                <option value="2" selected>Moyen</option>
+                <option value="3">Grand</option>
+            </select>
+            Mise en forme <input type="checkbox" v-model="mef">
+        </fieldset>
+
+        <div class="personne" v-for="p in filtredPersonnes" :key="p.login.uuid">
+            <div>
+                <img :src="getImage(p)" :alt="p.name.first + ' ' + p.name.last" :class="{ misEnForme: mef }">
+            </div>
+            <div class="info">
+                <div >
+                    <h3>{{ p.name.first }} {{ p.name.last }}</h3>
+                    <h4>{{ p.location.country }}</h4>
+                </div>
+                <div :style="{ display: contact ? 'block' : 'none' }">
+                    <p>Email : {{ p.email }}</p>
+                    <p>Phone : {{ p.phone }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    filtreNom : '',
+                    homme : true ,
+                    femme : true ,
+                    contact : false ,
+                    taille : 2,
+                    mef : false ,
+                    personnes: []
+                };
+            },
+            mounted() {
+                fetch('personnes.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        this.personnes = data;
+                    })
+                    .catch(error => console.error('Error loading JSON:', error));
+            },
+            computed : {
+                filtredPersonnes(){
+                    return this.personnes.filter(p => {
+                        const name = p.name.first + ' ' + p.name.last;
+                        return (name.toLowerCase().includes(this.filtreNom.toLowerCase())) &&
+                            ((this.homme && p.gender === 'male') || (this.femme && p.gender === 'female'));
+                    });
+                }
+            },
+            methods : {
+                getImage(p){
+                    if (this.taille == 1){ 
+                        return p.picture.thumbnail;
+                    } 
+                    if(this.taille == 3){
+                        return p.picture.large ;
+                    }
+                    return p.picture.medium ;
+
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+
+</html>

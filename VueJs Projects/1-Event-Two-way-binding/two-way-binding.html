@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>Manipulation de Vue</title>
+    <script src="https://unpkg.com/vue@3"></script>
+</head>
+<body>
+
+<div id="monapp">
+    <ul>
+        <li>Couleur de la police:</li>
+        <label>
+            <input type="radio" v-model="couleurSelectionnee" value="rouge"> Rouge
+        </label>
+        <br>
+        <label>
+            <input type="radio" v-model="couleurSelectionnee" value="bleu"> Bleu
+        </label>
+        <br>
+        <label>
+            <input type="radio" v-model="couleurSelectionnee" value="none"> Aucun
+        </label>
+        
+        <li>Affichez/cachez le paragraphe?</li>
+        <input type="checkbox" v-model="affiche">
+
+        <p v-if="affiche" :style="{ color: couleur }">{{ paragraphe }}</p>
+    </ul>
+</div>
+
+<script>
+    const appli = {
+        data() {
+            return {
+                couleurSelectionnee: 'none',
+                affiche: false,
+                paragraphe: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius dolores similique aut eligendi ea consectetur voluptatum, hic eum corporis a, magni doloremque labore eveniet doloribus mollitia modi numquam assumenda deserunt?'
+            };
+        },
+        computed: {
+            couleur() {
+                if (this.couleurSelectionnee === 'rouge') return 'red';
+                if (this.couleurSelectionnee === 'bleu') return 'blue';
+                return 'black';
+            }
+        }
+    };
+
+    Vue.createApp(appli).mount("#monapp");
+</script>
+
+</body>
+</html>
