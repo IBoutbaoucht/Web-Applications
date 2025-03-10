@@ -1,0 +1,56 @@
+<!-- Les Bonnes Piéces -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Bonnes Pièces</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Les Bonnes Pièces</h1>
+        </header>
+
+        <main>
+            <section class="filtres">
+                <h3>Filtres</h3>
+                <input type="text" v-model="search" placeholder="Rechercher une pièce...">
+                <select v-model="selectedCategory">
+                    <option value="">Toutes les catégories</option>
+                    <option v-for="category in categories" :key="category">{{ category }}</option>
+                </select>
+                <label>
+                    <input type="checkbox" v-model="onlyAvailable"> Afficher uniquement les pièces en stock
+                </label>
+                <button @click="sortByPrice('asc')">Prix croissant</button>
+                <button @click="sortByPrice('desc')">Prix décroissant</button>
+            </section>
+
+            <section class="fiches">
+                <div class="piece" v-for="piece in filteredPieces" :key="piece.id">
+                    <img :src="piece.image" :alt="piece.nom">
+                    <h2>{{ piece.nom }}</h2>
+                    <p>Prix: {{ piece.prix }} €</p>
+                    <p v-if="piece.disponible">En stock</p>
+                    <p v-else>Rupture de stock</p>
+                    <button :disabled="!piece.disponible" @click="addToCart(piece)">Ajouter au panier</button>
+                </div>
+            </section>
+        </main>
+
+        <aside class="panier">
+            <h3>🛒 Panier</h3>
+            <ul>
+                <li v-for="item in panier" :key="item.id">{{ item.nom }} - {{ item.prix }} €</li>
+            </ul>
+            <p>Total: {{ total }} €</p>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
