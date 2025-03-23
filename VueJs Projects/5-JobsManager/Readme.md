@@ -83,13 +83,13 @@ npm install -g @vue/cli
 Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/your-github-username/JobBoard-SPD2.git
+git clone https://github.com/your-github-username/JobBoard.git
 ```
 
 Navigate into the project folder:
 
 ```bash
-cd JobBoard-SPD2
+cd JobBoard
 ```
 
 Install the required dependencies:
@@ -130,5 +130,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## **Acknowledgments**
 
-- Special thanks to **Pr. Ahmed Bentajer** for the guidance in the creation of this project.
 - Thanks to the **Vue.js** community for providing an amazing framework to work with.
