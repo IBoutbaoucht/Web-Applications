@@ -1,4 +1,4 @@
-# blog
+# Blog Page Using VueJs
 
 ## Project setup
 
