@@ -1,4 +1,4 @@
-# jobs
+# Jobs Manager
 
 ## Project setup
 
