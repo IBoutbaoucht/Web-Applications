@@ -1,0 +1,24 @@
+{
+  "jobs": [
+    {
+      "id": "1",
+      "titre": "Développeur Frontend",
+      "description": "Nous recherchons un développeur Frontend expérimenté",
+      "salaire": 45000,
+      "dateCreation": "2024-03-20",
+      "experience": 3,
+      "location": "Casablanca",
+      "type": "CDI"
+    },
+    {
+      "id": "2",
+      "titre": "Développeur Backend",
+      "description": "Poste de développeur Backend Node.js",
+      "salaire": 50000,
+      "dateCreation": "2024-03-21",
+      "experience": 5,
+      "location": "Rabat",
+      "type": "Freelance"
+    }
+  ]
+}
