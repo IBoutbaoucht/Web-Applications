@@ -80,8 +80,8 @@ This project is licensed under the MIT License.
 
 ## ✉️ By
 
-Ayoub Moussaif 
-Omar Hafidi
-Walid Mamz
-Imad Boutbaoucht
+# Ayoub Moussaif 
+# Omar Hafidi
+# Walid Mamz
+# Imad Boutbaoucht
 
