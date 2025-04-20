@@ -1,12 +1,6 @@
 # 🔥 Vue Chat App
 
 A real-time chat application built using **Vue.js** and **Firebase**. Supports 1-on-1 private messaging, public and private group chatrooms, and Firebase Authentication.
-
-## 🚀 Live App
-
-👉 [Click here to open the app](#)  
-*Replace the `#` with your deployed app link.*
-
 ---
 
 ## ✨ Features
@@ -84,7 +78,10 @@ This project is licensed under the MIT License.
 
 ---
 
-## ✉️ Contact
+## ✉️ By
 
-For any inquiries or suggestions, feel free to reach out.
+Ayoub Moussaif 
+Omar Hafidi
+Walid Mamz
+Imad Boutbaoucht
 
