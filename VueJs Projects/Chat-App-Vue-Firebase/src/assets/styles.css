@@ -1,0 +1,35 @@
+/* Global styles */
+:root {
+  --primary-color: #007bff;
+  --text-color: #333;
+  --bg-color: #fff;
+  --border-color: #ddd;
+}
+
+.dark {
+  --primary-color: #3b82f6;
+  --text-color: #e5e7eb;
+  --bg-color: #1f2937;
+  --border-color: #4b5563;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  transition: background-color 0.3s ease;
+}
+
+input,
+textarea {
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
