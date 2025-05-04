@@ -2,9 +2,16 @@
 
 **SNS DevGate** is a professional social networking application tailored for developers to **track**, **centralize**, and **visualize** their technical growth. Whether you're a student, junior dev, freelancer, or a self-taught coder, DevGate helps you showcase your progress, projects, and goals — all in one place.
 
+## Realised By :
+
+  **Imad Boutbaoucht**
+  **Omar Hafidi**
+  **Walid Mamz**
+  **Ayoub Moussaif**
+
 ## 🌐 Live Demo
 
-👉 [Access DevGate Now](https://sns-devgate.web.app)
+👉 [Access DevGate Now](https://dev-g-59bb5.web.app)
 
 ---
 
